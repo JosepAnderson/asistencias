@@ -1,0 +1,43 @@
+.container {
+  width: 100%;
+  padding: 30px;
+  background: #f4f6f9;
+  font-family: "Segoe UI", Arial;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.fila {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  padding: 12px;
+  border: 1px solid #ddd;
+}
+
+.header {
+  background: #3b82f6;
+  color: white;
+  font-weight: bold;
+}
+
+.col-nombre {
+  width: 70%;
+  text-align: center;
+}
+
+.col {
+  width: 30%;
+  text-align: center;
+}
+
+.acciones-bottom {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}

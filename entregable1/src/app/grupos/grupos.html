@@ -1,0 +1,35 @@
+<div class="container">
+
+  <h2 class="title">Gestión de Grupos</h2>
+
+  <div class="fila header">
+    <div class="col-nombre">Grupo</div>
+    <div class="col">Acciones</div>
+  </div>
+
+  <div class="fila" *ngFor="let g of grupos">
+
+    <div class="col-nombre">
+      <input *ngIf="g.editando" [(ngModel)]="g.nombre">
+      <span *ngIf="!g.editando">{{ g.nombre }}</span>
+    </div>
+
+    <div class="col">
+      <button *ngIf="!g.editando" (click)="editarGrupo(g)">✏️</button>
+      <button *ngIf="g.editando" (click)="guardarGrupo(g)">💾</button>
+      <button (click)="eliminarGrupo(g.id)">🗑️</button>
+    </div>
+
+  </div>
+
+  <div class="acciones-bottom">
+    <input 
+      type="text" 
+      placeholder="Nuevo grupo"
+      [(ngModel)]="nuevoGrupo"
+    >
+
+    <button (click)="agregarGrupo()">+ Agregar</button>
+  </div>
+
+</div>

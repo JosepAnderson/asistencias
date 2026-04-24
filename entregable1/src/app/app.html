@@ -1,0 +1,24 @@
+<div class="container-principal">
+
+  <h1 class="titulo-principal">Trabajo de Asistencia</h1>
+
+  <div class="top-bar">
+    <button (click)="vista='grupos'">📂 Grupos</button>
+    <button (click)="vista='asistencia'">📝 Asistencia</button>
+  </div>
+
+  <!-- 🔥 AQUI ESTA LA CLAVE -->
+ <app-grupos 
+  *ngIf="vista === 'grupos'">
+</app-grupos>
+
+  <app-asistencia 
+    *ngIf="vista === 'asistencia'"
+    [grupos]="grupos"
+    [grupoSeleccionado]="grupoSeleccionado"
+    (seleccionarGrupo)="seleccionarGrupo($event)">
+  </app-asistencia>
+
+  <router-outlet></router-outlet>
+
+</div>

@@ -1,0 +1,109 @@
+<!-- 🔥 BOTONES DE GRUPOS -->
+<div class="grupos-bar">
+  <button 
+    *ngFor="let g of grupos"
+    (click)="seleccionarGrupo.emit(g)"
+    [class.activo]="grupoSeleccionado?.id === g.id">
+    {{ g.nombre }}
+  </button>
+</div>
+
+<h2 class="titulo-grupo">
+  {{ grupoSeleccionado?.nombre || 'Selecciona un grupo' }}
+</h2>
+
+<div class="container">
+
+  <!-- DASHBOARD -->
+  <div class="dashboard">
+    <div class="card">
+      <h3>TOTAL</h3>
+      <span>{{ total }}</span>
+    </div>
+
+    <div class="card">
+      <h3>PRESENTES</h3>
+      <span class="verde">{{ presentes }}</span>
+    </div>
+
+    <div class="card">
+      <h3>TARDANZAS</h3>
+      <span class="naranja">{{ tardanzas }}</span>
+    </div>
+
+    <div class="card">
+      <h3>AUSENTES</h3>
+      <span class="rojo">{{ ausentes }}</span>
+    </div>
+
+    <div class="card">
+      <h3>JUSTIFICADOS</h3>
+      <span class="azul">{{ justificados }}</span>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <div class="fila header">
+    <div class="col-nombre">Alumno</div>
+    <div class="col">P</div>
+    <div class="col">T</div>
+    <div class="col">A</div>
+    <div class="col">J</div>
+    <div class="col">Fecha</div>
+    <div class="col">Hora</div>
+    <div class="col">Acciones</div>
+  </div>
+
+  <!-- FILAS -->
+  <div class="fila" *ngFor="let a of alumnos">
+
+    <div class="col-nombre">
+      <input *ngIf="a.editando" [(ngModel)]="a.nombre">
+      <span *ngIf="!a.editando">{{a.nombre}}</span>
+    </div>
+
+    <div class="col">
+      <button class="btn-estado"
+        (click)="marcar(a, 'Presente')"
+        [class.presente]="a.estado === 'Presente'">P</button>
+    </div>
+
+    <div class="col">
+      <button class="btn-estado"
+        (click)="marcar(a, 'Tardanza')"
+        [class.tardanza]="a.estado === 'Tardanza'">T</button>
+    </div>
+
+    <div class="col">
+      <button class="btn-estado"
+        (click)="marcar(a, 'Ausente')"
+        [class.ausente]="a.estado === 'Ausente'">A</button>
+    </div>
+
+    <div class="col">
+      <button class="btn-estado"
+        (click)="marcar(a, 'Justificado')"
+        [class.justificado]="a.estado === 'Justificado'">J</button>
+    </div>
+
+    <div class="col">{{a.fecha || '-'}}</div>
+    <div class="col">{{a.hora || '-'}}</div>
+
+    <div class="col">
+      <button *ngIf="!a.editando" (click)="editarAlumno(a)">✏️</button>
+      <button *ngIf="a.editando" (click)="guardarEdicion(a)">💾</button>
+      <button (click)="eliminarAlumno(a.id)">🗑️</button>
+    </div>
+
+  </div>
+
+  <!-- INPUT -->
+  <div class="acciones-bottom">
+    <input type="text" placeholder="Nuevo alumno" [(ngModel)]="nuevoAlumno">
+
+    <button (click)="agregarAlumno()">+ Agregar</button>
+
+    <button (click)="guardarRegistro()">Guardar registro</button>
+  </div>
+
+</div>

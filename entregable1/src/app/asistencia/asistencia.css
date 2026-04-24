@@ -1,0 +1,91 @@
+/* GRUPOS */
+.grupos-bar {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.grupos-bar button {
+  padding: 8px 15px;
+  border-radius: 20px;
+  border: none;
+  background: #e5e7eb;
+  cursor: pointer;
+}
+
+.grupos-bar button.activo {
+  background: #3b82f6;
+  color: white;
+}
+
+.titulo-grupo {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* CONTENEDOR */
+.container {
+  width: 100%;
+  padding: 20px;
+  background: #f4f6f9;
+}
+
+/* DASHBOARD */
+.dashboard {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.card {
+  flex: 1;
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+/* COLORES */
+.verde { color: #22c55e; }
+.naranja { color: #f59e0b; }
+.rojo { color: #ef4444; }
+.azul { color: #3b82f6; }
+
+/* FILAS */
+.fila {
+  display: flex;
+  padding: 10px;
+  background: white;
+  margin-bottom: 5px;
+}
+
+.header {
+  background: #22c55e;
+  font-weight: bold;
+}
+
+/* COLUMNAS */
+.col-nombre { width: 30%; text-align: center; }
+.col { width: 10%; text-align: center; }
+
+/* BOTONES */
+.btn-estado {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+.presente { background: #22c55e; color: white; }
+.tardanza { background: #f59e0b; color: white; }
+.ausente { background: #ef4444; color: white; }
+.justificado { background: #3b82f6; color: white; }
+
+/* ACCIONES */
+.acciones-bottom {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+}
